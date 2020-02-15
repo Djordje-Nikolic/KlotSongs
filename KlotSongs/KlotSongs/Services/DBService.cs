@@ -82,7 +82,7 @@ namespace KlotSongs.Services
 				if (collection.CountDocuments(userFilter) > --this.nextBatch * batchSize)
 					return collection.Find(userFilter).Skip(batchSize * --this.nextBatch).Limit(batchSize).ToList();
 				else
-					return null;
+					return new List<Song>();
 			}
 		}
 
@@ -107,7 +107,7 @@ namespace KlotSongs.Services
 				if (collection.CountDocuments(stringFilter) > --this.nextBatch * batchSize)
 					return collection.Find(stringFilter).Skip(batchSize * --this.nextBatch).Limit(batchSize).ToList();
 				else
-					return null;
+					return new List<Song>();
 			}
 		}
 		
