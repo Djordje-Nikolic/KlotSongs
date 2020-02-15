@@ -54,6 +54,17 @@ namespace KlotSongs.Services
 			}
 		}
 
+		public void DeleteSong(Song song)
+		{
+			FilterDefinition<Song> deleteFilter = "{ Id: " + song.Id + " }";
+			using (DatabaseHandler database = new DatabaseHandler())
+			{
+				var collection = database.GetCollection<Song>("songs");
+
+				collection.DeleteOne(deleteFilter);
+			}
+		}
+
 		public List<Song> GetOwnedSongs(ObjectId ownerId, int batchSize)
 		{
 			if (this.lastSearch != Searches.User)
