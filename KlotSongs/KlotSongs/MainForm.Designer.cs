@@ -38,6 +38,10 @@
             this.modifyBtn = new System.Windows.Forms.Button();
             this.deleteBtn = new System.Windows.Forms.Button();
             this.addBtn = new System.Windows.Forms.Button();
+            this.mySongsPrev = new System.Windows.Forms.Button();
+            this.mySongsNext = new System.Windows.Forms.Button();
+            this.searchedSongsNext = new System.Windows.Forms.Button();
+            this.searchedSongsPrev = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -66,8 +70,9 @@
             this.mySongsListBox.ItemHeight = 16;
             this.mySongsListBox.Location = new System.Drawing.Point(19, 66);
             this.mySongsListBox.Name = "mySongsListBox";
-            this.mySongsListBox.Size = new System.Drawing.Size(238, 388);
+            this.mySongsListBox.Size = new System.Drawing.Size(238, 356);
             this.mySongsListBox.TabIndex = 2;
+            this.mySongsListBox.Click += new System.EventHandler(this.mySongsListBox_Click);
             // 
             // searchTxtBox
             // 
@@ -85,6 +90,7 @@
             this.searchBtn.TabIndex = 4;
             this.searchBtn.Text = "GO";
             this.searchBtn.UseVisualStyleBackColor = true;
+            this.searchBtn.Click += new System.EventHandler(this.searchBtn_Click);
             // 
             // searchedSongsListBox
             // 
@@ -92,8 +98,9 @@
             this.searchedSongsListBox.ItemHeight = 16;
             this.searchedSongsListBox.Location = new System.Drawing.Point(310, 105);
             this.searchedSongsListBox.Name = "searchedSongsListBox";
-            this.searchedSongsListBox.Size = new System.Drawing.Size(238, 388);
+            this.searchedSongsListBox.Size = new System.Drawing.Size(238, 356);
             this.searchedSongsListBox.TabIndex = 5;
+            this.searchedSongsListBox.Click += new System.EventHandler(this.searchedSongsListBox_Click);
             // 
             // songTxtBox
             // 
@@ -112,6 +119,7 @@
             this.modifyBtn.TabIndex = 7;
             this.modifyBtn.Text = "MODIFY";
             this.modifyBtn.UseVisualStyleBackColor = true;
+            this.modifyBtn.Click += new System.EventHandler(this.modifyBtn_Click);
             // 
             // deleteBtn
             // 
@@ -122,6 +130,7 @@
             this.deleteBtn.TabIndex = 8;
             this.deleteBtn.Text = "DELETE";
             this.deleteBtn.UseVisualStyleBackColor = true;
+            this.deleteBtn.Click += new System.EventHandler(this.deleteBtn_Click);
             // 
             // addBtn
             // 
@@ -134,11 +143,55 @@
             this.addBtn.UseVisualStyleBackColor = true;
             this.addBtn.Click += new System.EventHandler(this.addBtn_Click);
             // 
+            // mySongsPrev
+            // 
+            this.mySongsPrev.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mySongsPrev.Location = new System.Drawing.Point(19, 428);
+            this.mySongsPrev.Name = "mySongsPrev";
+            this.mySongsPrev.Size = new System.Drawing.Size(93, 33);
+            this.mySongsPrev.TabIndex = 10;
+            this.mySongsPrev.Text = "PREV";
+            this.mySongsPrev.UseVisualStyleBackColor = true;
+            // 
+            // mySongsNext
+            // 
+            this.mySongsNext.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mySongsNext.Location = new System.Drawing.Point(164, 428);
+            this.mySongsNext.Name = "mySongsNext";
+            this.mySongsNext.Size = new System.Drawing.Size(93, 33);
+            this.mySongsNext.TabIndex = 11;
+            this.mySongsNext.Text = "NEXT";
+            this.mySongsNext.UseVisualStyleBackColor = true;
+            // 
+            // searchedSongsNext
+            // 
+            this.searchedSongsNext.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchedSongsNext.Location = new System.Drawing.Point(455, 470);
+            this.searchedSongsNext.Name = "searchedSongsNext";
+            this.searchedSongsNext.Size = new System.Drawing.Size(93, 33);
+            this.searchedSongsNext.TabIndex = 13;
+            this.searchedSongsNext.Text = "NEXT";
+            this.searchedSongsNext.UseVisualStyleBackColor = true;
+            // 
+            // searchedSongsPrev
+            // 
+            this.searchedSongsPrev.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchedSongsPrev.Location = new System.Drawing.Point(310, 470);
+            this.searchedSongsPrev.Name = "searchedSongsPrev";
+            this.searchedSongsPrev.Size = new System.Drawing.Size(93, 33);
+            this.searchedSongsPrev.TabIndex = 12;
+            this.searchedSongsPrev.Text = "PREV";
+            this.searchedSongsPrev.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1033, 515);
+            this.Controls.Add(this.searchedSongsNext);
+            this.Controls.Add(this.searchedSongsPrev);
+            this.Controls.Add(this.mySongsNext);
+            this.Controls.Add(this.mySongsPrev);
             this.Controls.Add(this.addBtn);
             this.Controls.Add(this.deleteBtn);
             this.Controls.Add(this.modifyBtn);
@@ -168,6 +221,10 @@
         private System.Windows.Forms.Button modifyBtn;
         private System.Windows.Forms.Button deleteBtn;
         private System.Windows.Forms.Button addBtn;
+        private System.Windows.Forms.Button mySongsPrev;
+        private System.Windows.Forms.Button mySongsNext;
+        private System.Windows.Forms.Button searchedSongsNext;
+        private System.Windows.Forms.Button searchedSongsPrev;
     }
 }
 

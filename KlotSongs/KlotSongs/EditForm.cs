@@ -100,6 +100,7 @@ namespace KlotSongs
         private void buttonCommitGlobal_Click(object sender, EventArgs e)
         {
             editController.CommitChanges();
+            this.Close();
         }
 
         private void buttonDeleteParagraph_Click(object sender, EventArgs e)

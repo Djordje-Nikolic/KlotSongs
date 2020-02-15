@@ -15,7 +15,7 @@ namespace KlotSongs.Services
 		String
 	}
 
-	class DBService
+	public class DBService
 	{
 		public int nextBatch { get; set; } = 0;
 		public Searches lastSearch { get; private set; }
@@ -62,9 +62,9 @@ namespace KlotSongs.Services
 			}
 		}
 
-		public List<Song> GetOwnedSongs(ObjectId ownerId, int batchSize)
+		public List<Song> GetOwnedSongs(ObjectId ownerId, int batchSize, bool firstLookup)
 		{
-			if (this.lastSearch != Searches.User)
+			if (this.lastSearch != Searches.User || !firstLookup)
 			{
 				this.ClearBatchIndex();
 				this.lastSearch = Searches.User;
