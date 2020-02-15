@@ -41,6 +41,19 @@ namespace KlotSongs.Services
 			}
 		}
 
+		public void UpdateSong(Song song)
+		{
+
+			FilterDefinition<Song> updateFilter = "{ Id: " + song.Id + " }";
+			UpdateDefinition<Song> songUpdate = "{ Name: " + song.Name + ", Artist: " + song.Artist + ", Lyrics: " + song.Lyrics + " }";
+			using (DatabaseHandler database = new DatabaseHandler())
+			{
+				var collection = database.GetCollection<Song>("songs");
+
+				collection.UpdateOne(updateFilter, songUpdate);
+			}
+		}
+
 		public List<Song> GetOwnedSongs(ObjectId ownerId, int batchSize)
 		{
 			if (this.lastSearch != Searches.User)
