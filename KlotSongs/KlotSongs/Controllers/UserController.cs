@@ -31,7 +31,7 @@ namespace KlotSongs.Controllers
                 return false;
 
             SHA1 sha1 = SHA1.Create();
-            string hashedPassword = Encoding.UTF8.GetString(sha1.ComputeHash(Encoding.UTF8.GetBytes(password)));
+            string hashedPassword = Convert.ToBase64String(sha1.ComputeHash(Encoding.UTF8.GetBytes(password)));
 
             User user;
             try
@@ -59,7 +59,7 @@ namespace KlotSongs.Controllers
                 return false;
 
             SHA1 sha1 = SHA1.Create();
-            string hashedPassword = Encoding.UTF8.GetString(sha1.ComputeHash(Encoding.UTF8.GetBytes(password)));
+            string hashedPassword = Convert.ToBase64String(sha1.ComputeHash(Encoding.UTF8.GetBytes(password)));
 
             bool result = false;
             try

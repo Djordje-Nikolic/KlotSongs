@@ -96,9 +96,7 @@ namespace KlotSongs
 
         private void TransitionToMainForm(User loggedInUser)
         {
-            //Create main form and send the LoggedInUser to it
-            //Ovako treba da izgleda tvoje samo zameni koja je forma, i treba da joj prosledis User objekat, a ne controller ovaj, to posle ti pravis
-            var mainForm = new EditForm(editController);
+            var mainForm = new MainForm(loggedInUser);
             mainForm.Location = this.Location;
             mainForm.StartPosition = FormStartPosition.Manual;
             mainForm.FormClosing += delegate { InitializeLogin(); this.Show();};
