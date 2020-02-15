@@ -19,6 +19,7 @@ namespace KlotSongs.Services
 	{
 		public int nextBatch { get; set; } = 0;
 		public Searches lastSearch { get; private set; }
+		public string lastSearchedString { get; private set; }
 
 		public List<Song> GetSongList()
 		{
@@ -78,7 +79,10 @@ namespace KlotSongs.Services
 			using (DatabaseHandler database = new DatabaseHandler())
 			{
 				var collection = database.GetCollection<Song>("songs");
-				return collection.Find(userFilter).Skip(batchSize * --this.nextBatch).Limit(batchSize).ToList();
+				if (collection.CountDocuments(userFilter) > --this.nextBatch * batchSize)
+					return collection.Find(userFilter).Skip(batchSize * --this.nextBatch).Limit(batchSize).ToList();
+				else
+					return null;
 			}
 		}
 
@@ -89,13 +93,21 @@ namespace KlotSongs.Services
 				this.ClearBatchIndex();
 				this.lastSearch = Searches.String;
 			}
+			if(this.lastSearchedString != searchString)
+			{
+				this.ClearBatchIndex();
+				this.lastSearchedString = searchString;
+			}
 			this.nextBatch++;
 			FilterDefinition<Song> stringFilter = "{ Name:" + "/" + searchString + "/i }" ;
 
 			using (DatabaseHandler database = new DatabaseHandler())
 			{
 				var collection = database.GetCollection<Song>("songs");
-				return collection.Find(stringFilter).Skip(batchSize * --this.nextBatch).Limit(batchSize).ToList();
+				if (collection.CountDocuments(stringFilter) > --this.nextBatch * batchSize)
+					return collection.Find(stringFilter).Skip(batchSize * --this.nextBatch).Limit(batchSize).ToList();
+				else
+					return null;
 			}
 		}
 		
