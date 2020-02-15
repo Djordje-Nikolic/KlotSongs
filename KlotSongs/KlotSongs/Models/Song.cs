@@ -10,6 +10,7 @@ namespace KlotSongs.Models
 	class Song
 	{
 		public ObjectId Id { get; set; }
+		public ObjectId OwnerId { get; set; }
 		public string Name { get; set; }
 		public string Artist { get; set; }
 		public List<Paragraph> Lyrics { get; set; }

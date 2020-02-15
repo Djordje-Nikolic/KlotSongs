@@ -17,24 +17,37 @@ namespace KlotSongs
 	{
 		public Form1()
 		{
-			Paragraph para = new Paragraph()
-			{
-				Lyrics = "vozi me",
-				Type = "Chorus"
-			};
-			List<Paragraph> pesma = new List<Paragraph>();
-			pesma.Add(para);
-			DBService database = new DBService();
 			InitializeComponent();
-			Song song = new Song()
-			{
-				Artist = "MikaPera",
-				Name = "Relax, kake",
-				Id = new ObjectId(),
-				Lyrics = pesma 
-			};
-			database.AddSong(song);
-			List<Song> songs = database.GetSongList();
+			//Paragraph para = new Paragraph()
+			//{
+			//	Lyrics = "vozi me",
+			//	Type = "Chorus"
+			//};
+			//ObjectId owner = ObjectId.GenerateNewId();
+			//List<Paragraph> pesma = new List<Paragraph>();
+			//pesma.Add(para);
+			//DBService database = new DBService();
+			//Song song = new Song()
+			//{
+			//	Artist = "MikaPera",
+			//	Name = "Relax, kake",
+			//	Id = new ObjectId(),
+			//	Lyrics = pesma,
+			//	OwnerId = owner
+			//};
+			//Song song1 = new Song()
+			//{
+			//	Artist = "MikaPera",
+			//	Name = "Relax, kake",
+			//	Id = new ObjectId(),
+			//	Lyrics = pesma,
+			//	OwnerId = owner
+			//};
+			//database.AddSong(song);
+			//database.AddSong(song1);
+			//List<Song> songs = database.GetSongList();
+			//List<Song> songsUser = database.GetSongsMatching("rel", 1);
+			//List<Song> songsUser1 = database.GetSongsMatching("kak", 1);
 		}
 	}
 }
