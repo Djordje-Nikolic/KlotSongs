@@ -37,6 +37,7 @@
             this.songTxtBox = new System.Windows.Forms.TextBox();
             this.modifyBtn = new System.Windows.Forms.Button();
             this.deleteBtn = new System.Windows.Forms.Button();
+            this.addBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -65,7 +66,7 @@
             this.mySongsListBox.ItemHeight = 16;
             this.mySongsListBox.Location = new System.Drawing.Point(19, 66);
             this.mySongsListBox.Name = "mySongsListBox";
-            this.mySongsListBox.Size = new System.Drawing.Size(238, 436);
+            this.mySongsListBox.Size = new System.Drawing.Size(238, 388);
             this.mySongsListBox.TabIndex = 2;
             // 
             // searchTxtBox
@@ -122,11 +123,22 @@
             this.deleteBtn.Text = "DELETE";
             this.deleteBtn.UseVisualStyleBackColor = true;
             // 
+            // addBtn
+            // 
+            this.addBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addBtn.Location = new System.Drawing.Point(19, 467);
+            this.addBtn.Name = "addBtn";
+            this.addBtn.Size = new System.Drawing.Size(238, 35);
+            this.addBtn.TabIndex = 9;
+            this.addBtn.Text = "ADD";
+            this.addBtn.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1033, 515);
+            this.Controls.Add(this.addBtn);
             this.Controls.Add(this.deleteBtn);
             this.Controls.Add(this.modifyBtn);
             this.Controls.Add(this.songTxtBox);
@@ -154,6 +166,7 @@
         private System.Windows.Forms.TextBox songTxtBox;
         private System.Windows.Forms.Button modifyBtn;
         private System.Windows.Forms.Button deleteBtn;
+        private System.Windows.Forms.Button addBtn;
     }
 }
 
