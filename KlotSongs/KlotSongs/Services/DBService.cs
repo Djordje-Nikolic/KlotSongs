@@ -44,25 +44,21 @@ namespace KlotSongs.Services
 
 		public void UpdateSong(Song song)
 		{
-
-			FilterDefinition<Song> updateFilter = "{ Id: " + song.Id + " }";
-			UpdateDefinition<Song> songUpdate = "{ Name: " + song.Name + ", Artist: " + song.Artist + ", Lyrics: " + song.Lyrics + " }";
 			using (DatabaseHandler database = new DatabaseHandler())
 			{
 				var collection = database.GetCollection<Song>("songs");
 
-				collection.UpdateOne(updateFilter, songUpdate);
+				collection.ReplaceOneAsync(doc=> doc.Id == song.Id, song);
 			}
 		}
 
 		public void DeleteSong(Song song)
 		{
-			FilterDefinition<Song> deleteFilter = "{ Id: " + song.Id + " }";
 			using (DatabaseHandler database = new DatabaseHandler())
 			{
 				var collection = database.GetCollection<Song>("songs");
 
-				collection.DeleteOne(deleteFilter);
+				collection.DeleteOne(doc => doc.Id == song.Id);
 			}
 		}
 
@@ -80,7 +76,9 @@ namespace KlotSongs.Services
 			{
 				var collection = database.GetCollection<Song>("songs");
 				if (collection.CountDocuments(userFilter) > --this.nextBatch * batchSize)
-					return collection.Find(userFilter).Skip(batchSize * --this.nextBatch).Limit(batchSize).ToList();
+				{
+					return collection.Find(userFilter).Skip(batchSize * this.nextBatch++).Limit(batchSize).ToList();
+				}
 				else
 					return new List<Song>();
 			}
@@ -105,7 +103,7 @@ namespace KlotSongs.Services
 			{
 				var collection = database.GetCollection<Song>("songs");
 				if (collection.CountDocuments(stringFilter) > --this.nextBatch * batchSize)
-					return collection.Find(stringFilter).Skip(batchSize * --this.nextBatch).Limit(batchSize).ToList();
+					return collection.Find(stringFilter).Skip(batchSize * this.nextBatch++).Limit(batchSize).ToList();
 				else
 					return new List<Song>();
 			}
