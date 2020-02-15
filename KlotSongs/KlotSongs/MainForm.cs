@@ -13,9 +13,9 @@ using MongoDB.Bson;
 
 namespace KlotSongs
 {
-	public partial class Form1 : Form
+	public partial class MainForm : Form
 	{
-		public Form1()
+		public MainForm()
 		{
 			InitializeComponent();
 			DBService database = new DBService();
