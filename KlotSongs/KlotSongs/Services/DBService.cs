@@ -109,7 +109,7 @@ namespace KlotSongs.Services
 			}
 		}
 		
-		private void ClearBatchIndex()
+		public void ClearBatchIndex()
 		{
 			this.nextBatch = 0;
 		}

@@ -19,7 +19,8 @@ namespace KlotSongs
 		User currentUser;
 		Song currentSong;
 		DBService db = new DBService();
-		int batchSize = 10;
+
+		int batchSize = 15;
 
 		public MainForm(User user)
 		{
@@ -28,11 +29,13 @@ namespace KlotSongs
 			currentUser = user;
 			SetMySongs(true);
 			SetSongButtons(false);
+
+			nextBtn.Enabled = false;
 		}
 
 		private void SetMySongs(bool firstLookup)
 		{
-			List<Song> mySongs = db.GetOwnedSongs(currentUser.Id, batchSize, firstLookup);
+			List<Song> mySongs = db.GetOwnedSongs(currentUser.Id, 50, firstLookup);
 			mySongsListBox.DataSource = null;			
 			mySongsListBox.DataSource = mySongs;
 		}
@@ -129,8 +132,12 @@ namespace KlotSongs
 			if(searchText == "")
 			{
 				SetSearchedSongs(new List<Song>());
+				nextBtn.Enabled = false;
 				return;
 			}
+
+			nextBtn.Enabled = true;
+
 			List<Song> songs = db.GetSongsMatching(searchText, batchSize);
 			SetSearchedSongs(songs);
 		}
@@ -144,6 +151,21 @@ namespace KlotSongs
 				Song song = (Song)searchedSongsListBox.Items[index];
 				songTxtBox.Text = GenerateSongDisplayText(song);
 			}
+		}
+
+		private void searchedSongsNext_Click(object sender, EventArgs e)
+		{
+			string searchText = searchTxtBox.Text;
+
+			List<Song> songs = db.GetSongsMatching(searchText, batchSize);
+
+			if (songs.Count == 0)
+			{
+				MessageBox.Show("No more songs to display", "Oops", MessageBoxButtons.OK, MessageBoxIcon.Information);
+				db.ClearBatchIndex();
+			}
+
+			SetSearchedSongs(songs);
 		}
 	}
 }
