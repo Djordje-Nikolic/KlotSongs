@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using KlotSongs.Controllers;
+using KlotSongs.Services;
+using KlotSongs.Models;
 
 namespace KlotSongs
 {
@@ -17,11 +19,9 @@ namespace KlotSongs
 		static void Main()
 		{
 			UserController userController = new UserController();
-
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
-			//Application.Run(new LoginForm(userController));
-			Application.Run(new EditForm());
+			Application.Run(new LoginForm(userController));
 		}
 	}
 }

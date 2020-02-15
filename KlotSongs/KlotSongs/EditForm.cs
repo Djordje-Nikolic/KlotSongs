@@ -72,8 +72,12 @@ namespace KlotSongs
         private void buttonLoadParagraph_Click(object sender, EventArgs e)
         {
             displayedParagraph = editController.GetParagraphAt((int)numericUpDownParagraphChoice.Value);
-            textBoxEditedParagraph.Text = displayedParagraph.Lyrics;
-            textBoxEditedParagraphType.Text = displayedParagraph.Type;
+
+            if (displayedParagraph != null)
+            {
+                textBoxEditedParagraph.Text = displayedParagraph.Lyrics;
+                textBoxEditedParagraphType.Text = displayedParagraph.Type;
+            }
         }
 
         private void buttonCommit_Click(object sender, EventArgs e)

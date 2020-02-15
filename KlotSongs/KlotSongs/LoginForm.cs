@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using KlotSongs.Controllers;
+using KlotSongs.Models;
+using KlotSongs.Services;
 
 namespace KlotSongs
 {
@@ -59,13 +61,12 @@ namespace KlotSongs
             }
             else
             {
-                //Trylogin
 
                 if (userController.TryLogin(textBoxUsername.Text, textBoxPassword.Text))
                 {
                     DisplayStatus("Login successful. Transitiong...");
 
-                    TransitionToMainForm(/* userController.LoggedInUser */);
+                    TransitionToMainForm(userController.LoggedInUser);
                 }
                 else
                 {
@@ -93,15 +94,15 @@ namespace KlotSongs
             }
         }
 
-        private void TransitionToMainForm(/* userController.LoggedInUser */)
+        private void TransitionToMainForm(User loggedInUser)
         {
             //Create main form and send the LoggedInUser to it
-
-            //mainForm.Location = this.Location;
-            //mainForm.StartPosition = FormStartPosition.Manual;
-            //mainForm.FormClosing += delegate { InitializeLogin(); this.Show();};
-            //mainForm.Show();
-
+            //Ovako treba da izgleda tvoje samo zameni koja je forma, i treba da joj prosledis User objekat, a ne controller ovaj, to posle ti pravis
+            var mainForm = new EditForm(editController);
+            mainForm.Location = this.Location;
+            mainForm.StartPosition = FormStartPosition.Manual;
+            mainForm.FormClosing += delegate { InitializeLogin(); this.Show();};
+            mainForm.Show();
             this.Hide();
         }
     }

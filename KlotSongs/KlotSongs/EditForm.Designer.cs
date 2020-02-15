@@ -32,28 +32,28 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPageAdd = new System.Windows.Forms.TabPage();
-            this.tabPageEdit = new System.Windows.Forms.TabPage();
-            this.label2 = new System.Windows.Forms.Label();
-            this.numericUpDownAddAfterParagraph = new System.Windows.Forms.NumericUpDown();
-            this.label3 = new System.Windows.Forms.Label();
-            this.buttonAdd = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBoxParagraphType = new System.Windows.Forms.TextBox();
-            this.textBoxParagraph = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.numericUpDownParagraphChoice = new System.Windows.Forms.NumericUpDown();
-            this.label6 = new System.Windows.Forms.Label();
-            this.textBoxEditedParagraph = new System.Windows.Forms.TextBox();
-            this.buttonLoadParagraph = new System.Windows.Forms.Button();
-            this.buttonCommit = new System.Windows.Forms.Button();
+            this.textBoxParagraph = new System.Windows.Forms.TextBox();
+            this.textBoxParagraphType = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.buttonAdd = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.numericUpDownAddAfterParagraph = new System.Windows.Forms.NumericUpDown();
+            this.tabPageEdit = new System.Windows.Forms.TabPage();
+            this.buttonDeleteParagraph = new System.Windows.Forms.Button();
             this.textBoxEditedParagraphType = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.buttonCommit = new System.Windows.Forms.Button();
+            this.buttonLoadParagraph = new System.Windows.Forms.Button();
+            this.textBoxEditedParagraph = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.numericUpDownParagraphChoice = new System.Windows.Forms.NumericUpDown();
+            this.label2 = new System.Windows.Forms.Label();
             this.buttonCommitGlobal = new System.Windows.Forms.Button();
-            this.buttonDeleteParagraph = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPageAdd.SuspendLayout();
-            this.tabPageEdit.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAddAfterParagraph)).BeginInit();
+            this.tabPageEdit.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownParagraphChoice)).BeginInit();
             this.SuspendLayout();
             // 
@@ -105,6 +105,67 @@
             this.tabPageAdd.Text = "Add";
             this.tabPageAdd.UseVisualStyleBackColor = true;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(6, 15);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(120, 16);
+            this.label5.TabIndex = 11;
+            this.label5.Text = "Paragraph To Add";
+            // 
+            // textBoxParagraph
+            // 
+            this.textBoxParagraph.Location = new System.Drawing.Point(9, 34);
+            this.textBoxParagraph.Multiline = true;
+            this.textBoxParagraph.Name = "textBoxParagraph";
+            this.textBoxParagraph.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBoxParagraph.Size = new System.Drawing.Size(550, 265);
+            this.textBoxParagraph.TabIndex = 5;
+            // 
+            // textBoxParagraphType
+            // 
+            this.textBoxParagraphType.Location = new System.Drawing.Point(445, 305);
+            this.textBoxParagraphType.Name = "textBoxParagraphType";
+            this.textBoxParagraphType.Size = new System.Drawing.Size(114, 22);
+            this.textBoxParagraphType.TabIndex = 4;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(329, 308);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(110, 16);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "Paragraph Type:";
+            // 
+            // buttonAdd
+            // 
+            this.buttonAdd.Location = new System.Drawing.Point(480, 361);
+            this.buttonAdd.Name = "buttonAdd";
+            this.buttonAdd.Size = new System.Drawing.Size(79, 23);
+            this.buttonAdd.TabIndex = 2;
+            this.buttonAdd.Text = "Add";
+            this.buttonAdd.UseVisualStyleBackColor = true;
+            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(416, 335);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(92, 16);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "Insert at index:";
+            // 
+            // numericUpDownAddAfterParagraph
+            // 
+            this.numericUpDownAddAfterParagraph.Location = new System.Drawing.Point(514, 333);
+            this.numericUpDownAddAfterParagraph.Name = "numericUpDownAddAfterParagraph";
+            this.numericUpDownAddAfterParagraph.Size = new System.Drawing.Size(45, 22);
+            this.numericUpDownAddAfterParagraph.TabIndex = 0;
+            // 
             // tabPageEdit
             // 
             this.tabPageEdit.Controls.Add(this.buttonDeleteParagraph);
@@ -123,121 +184,15 @@
             this.tabPageEdit.Text = "Edit";
             this.tabPageEdit.UseVisualStyleBackColor = true;
             // 
-            // label2
+            // buttonDeleteParagraph
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(645, 9);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(138, 20);
-            this.label2.TabIndex = 10;
-            this.label2.Text = "Paragraph Control";
-            // 
-            // numericUpDownAddAfterParagraph
-            // 
-            this.numericUpDownAddAfterParagraph.Location = new System.Drawing.Point(514, 333);
-            this.numericUpDownAddAfterParagraph.Name = "numericUpDownAddAfterParagraph";
-            this.numericUpDownAddAfterParagraph.Size = new System.Drawing.Size(45, 22);
-            this.numericUpDownAddAfterParagraph.TabIndex = 0;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(416, 335);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(92, 16);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "Insert at index:";
-            // 
-            // buttonAdd
-            // 
-            this.buttonAdd.Location = new System.Drawing.Point(480, 361);
-            this.buttonAdd.Name = "buttonAdd";
-            this.buttonAdd.Size = new System.Drawing.Size(79, 23);
-            this.buttonAdd.TabIndex = 2;
-            this.buttonAdd.Text = "Add";
-            this.buttonAdd.UseVisualStyleBackColor = true;
-            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(329, 308);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(110, 16);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Paragraph Type:";
-            // 
-            // textBoxParagraphType
-            // 
-            this.textBoxParagraphType.Location = new System.Drawing.Point(445, 305);
-            this.textBoxParagraphType.Name = "textBoxParagraphType";
-            this.textBoxParagraphType.Size = new System.Drawing.Size(114, 22);
-            this.textBoxParagraphType.TabIndex = 4;
-            // 
-            // textBoxParagraph
-            // 
-            this.textBoxParagraph.Location = new System.Drawing.Point(9, 34);
-            this.textBoxParagraph.Multiline = true;
-            this.textBoxParagraph.Name = "textBoxParagraph";
-            this.textBoxParagraph.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxParagraph.Size = new System.Drawing.Size(550, 265);
-            this.textBoxParagraph.TabIndex = 5;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(6, 15);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(120, 16);
-            this.label5.TabIndex = 11;
-            this.label5.Text = "Paragraph To Add";
-            // 
-            // numericUpDownParagraphChoice
-            // 
-            this.numericUpDownParagraphChoice.Location = new System.Drawing.Point(134, 17);
-            this.numericUpDownParagraphChoice.Name = "numericUpDownParagraphChoice";
-            this.numericUpDownParagraphChoice.Size = new System.Drawing.Size(38, 22);
-            this.numericUpDownParagraphChoice.TabIndex = 0;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 19);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(122, 16);
-            this.label6.TabIndex = 1;
-            this.label6.Text = "Choose Paragraph";
-            // 
-            // textBoxEditedParagraph
-            // 
-            this.textBoxEditedParagraph.Location = new System.Drawing.Point(9, 43);
-            this.textBoxEditedParagraph.Multiline = true;
-            this.textBoxEditedParagraph.Name = "textBoxEditedParagraph";
-            this.textBoxEditedParagraph.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxEditedParagraph.Size = new System.Drawing.Size(550, 265);
-            this.textBoxEditedParagraph.TabIndex = 6;
-            // 
-            // buttonLoadParagraph
-            // 
-            this.buttonLoadParagraph.Location = new System.Drawing.Point(178, 16);
-            this.buttonLoadParagraph.Name = "buttonLoadParagraph";
-            this.buttonLoadParagraph.Size = new System.Drawing.Size(140, 23);
-            this.buttonLoadParagraph.TabIndex = 7;
-            this.buttonLoadParagraph.Text = "Load Paragraph";
-            this.buttonLoadParagraph.UseVisualStyleBackColor = true;
-            this.buttonLoadParagraph.Click += new System.EventHandler(this.buttonLoadParagraph_Click);
-            // 
-            // buttonCommit
-            // 
-            this.buttonCommit.Location = new System.Drawing.Point(422, 353);
-            this.buttonCommit.Name = "buttonCommit";
-            this.buttonCommit.Size = new System.Drawing.Size(137, 23);
-            this.buttonCommit.TabIndex = 8;
-            this.buttonCommit.Text = "Commit edit";
-            this.buttonCommit.UseVisualStyleBackColor = true;
-            this.buttonCommit.Click += new System.EventHandler(this.buttonCommit_Click);
+            this.buttonDeleteParagraph.Location = new System.Drawing.Point(324, 16);
+            this.buttonDeleteParagraph.Name = "buttonDeleteParagraph";
+            this.buttonDeleteParagraph.Size = new System.Drawing.Size(140, 23);
+            this.buttonDeleteParagraph.TabIndex = 11;
+            this.buttonDeleteParagraph.Text = "Delete Paragraph";
+            this.buttonDeleteParagraph.UseVisualStyleBackColor = true;
+            this.buttonDeleteParagraph.Click += new System.EventHandler(this.buttonDeleteParagraph_Click);
             // 
             // textBoxEditedParagraphType
             // 
@@ -255,6 +210,61 @@
             this.label7.TabIndex = 9;
             this.label7.Text = "Paragraph Type:";
             // 
+            // buttonCommit
+            // 
+            this.buttonCommit.Location = new System.Drawing.Point(422, 353);
+            this.buttonCommit.Name = "buttonCommit";
+            this.buttonCommit.Size = new System.Drawing.Size(137, 23);
+            this.buttonCommit.TabIndex = 8;
+            this.buttonCommit.Text = "Commit edit";
+            this.buttonCommit.UseVisualStyleBackColor = true;
+            this.buttonCommit.Click += new System.EventHandler(this.buttonCommit_Click);
+            // 
+            // buttonLoadParagraph
+            // 
+            this.buttonLoadParagraph.Location = new System.Drawing.Point(178, 16);
+            this.buttonLoadParagraph.Name = "buttonLoadParagraph";
+            this.buttonLoadParagraph.Size = new System.Drawing.Size(140, 23);
+            this.buttonLoadParagraph.TabIndex = 7;
+            this.buttonLoadParagraph.Text = "Load Paragraph";
+            this.buttonLoadParagraph.UseVisualStyleBackColor = true;
+            this.buttonLoadParagraph.Click += new System.EventHandler(this.buttonLoadParagraph_Click);
+            // 
+            // textBoxEditedParagraph
+            // 
+            this.textBoxEditedParagraph.Location = new System.Drawing.Point(9, 43);
+            this.textBoxEditedParagraph.Multiline = true;
+            this.textBoxEditedParagraph.Name = "textBoxEditedParagraph";
+            this.textBoxEditedParagraph.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBoxEditedParagraph.Size = new System.Drawing.Size(550, 265);
+            this.textBoxEditedParagraph.TabIndex = 6;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(6, 19);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(122, 16);
+            this.label6.TabIndex = 1;
+            this.label6.Text = "Choose Paragraph";
+            // 
+            // numericUpDownParagraphChoice
+            // 
+            this.numericUpDownParagraphChoice.Location = new System.Drawing.Point(134, 17);
+            this.numericUpDownParagraphChoice.Name = "numericUpDownParagraphChoice";
+            this.numericUpDownParagraphChoice.Size = new System.Drawing.Size(38, 22);
+            this.numericUpDownParagraphChoice.TabIndex = 0;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(645, 9);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(138, 20);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "Paragraph Control";
+            // 
             // buttonCommitGlobal
             // 
             this.buttonCommitGlobal.Location = new System.Drawing.Point(915, 12);
@@ -264,16 +274,6 @@
             this.buttonCommitGlobal.Text = "Commit global";
             this.buttonCommitGlobal.UseVisualStyleBackColor = true;
             this.buttonCommitGlobal.Click += new System.EventHandler(this.buttonCommitGlobal_Click);
-            // 
-            // buttonDeleteParagraph
-            // 
-            this.buttonDeleteParagraph.Location = new System.Drawing.Point(324, 16);
-            this.buttonDeleteParagraph.Name = "buttonDeleteParagraph";
-            this.buttonDeleteParagraph.Size = new System.Drawing.Size(140, 23);
-            this.buttonDeleteParagraph.TabIndex = 11;
-            this.buttonDeleteParagraph.Text = "Delete Paragraph";
-            this.buttonDeleteParagraph.UseVisualStyleBackColor = true;
-            this.buttonDeleteParagraph.Click += new System.EventHandler(this.buttonDeleteParagraph_Click);
             // 
             // EditForm
             // 
@@ -285,14 +285,16 @@
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBoxSong);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.MaximizeBox = false;
             this.Name = "EditForm";
             this.Text = "EditForm";
             this.tabControl1.ResumeLayout(false);
             this.tabPageAdd.ResumeLayout(false);
             this.tabPageAdd.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAddAfterParagraph)).EndInit();
             this.tabPageEdit.ResumeLayout(false);
             this.tabPageEdit.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAddAfterParagraph)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownParagraphChoice)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

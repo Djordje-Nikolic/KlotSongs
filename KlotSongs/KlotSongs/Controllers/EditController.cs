@@ -4,16 +4,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using KlotSongs.Models;
+using KlotSongs.Services;
 
 namespace KlotSongs.Controllers
 {
     public class EditController
     {
         public readonly Song EditedSong;
+        public readonly DBService dBService;
 
-        public EditController(Song song)
+        public EditController(Song song, DBService dBService = null)
         {
             EditedSong = song;
+            if (dBService == null)
+            {
+                this.dBService = new DBService();
+            }
+            else
+            {
+                this.dBService = dBService;
+            }
         }
 
         public string GenerateSongDisplayText()
@@ -22,13 +32,14 @@ namespace KlotSongs.Controllers
 
             stringBuilder.AppendLine($"Song name: {EditedSong.Name}");
             stringBuilder.AppendLine($"Artist name: {EditedSong.Artist}");
-            stringBuilder.AppendLine();
 
             int i = 0;
             foreach (var paragraph in EditedSong.Lyrics)
             {
+                stringBuilder.AppendLine();
                 stringBuilder.AppendLine($"{paragraph.Type} Index: {i}");
                 stringBuilder.AppendLine(paragraph.Lyrics);
+                i++;
             }
 
             return stringBuilder.ToString();
@@ -57,17 +68,21 @@ namespace KlotSongs.Controllers
 
         public Paragraph GetParagraphAt(int index)
         {
-            return EditedSong.Lyrics.ElementAt(index);
+            if (index >= 0 && index < EditedSong.Lyrics.Count)
+                return EditedSong.Lyrics.ElementAt(index);
+            else
+                return null;
         }
 
         public void RemoveParagraphAt(int index)
         {
-            EditedSong.Lyrics.RemoveAt(index);
+            if (index >= 0 && index < EditedSong.Lyrics.Count)
+                EditedSong.Lyrics.RemoveAt(index);
         }
 
         public void CommitChanges()
         {
-            //Push to db
+            dBService.UpdateSong(EditedSong);
         }
     }
 }
