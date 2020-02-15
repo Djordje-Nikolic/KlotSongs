@@ -79,5 +79,38 @@ namespace KlotSongs.Services
 		{
 			this.nextBatch = 0;
 		}
+
+		public User LogIn(string username, string password)
+		{
+			FilterDefinition<User> logInFilter = "{ Username: " + "\"" + username + "\"" + ", " + "Password: " + "\"" + password + "\"" + " }";
+
+			using (DatabaseHandler database = new DatabaseHandler())
+			{
+				var collection = database.GetCollection<User>("users");
+				return collection.Find(logInFilter).ToList().Last();
+			}
+		}
+
+		public bool Register (string username, string password)
+		{
+			FilterDefinition<User> registerFilter = "{ Username: " + "\"" + username + "\"" + " }";
+
+			using (DatabaseHandler database = new DatabaseHandler())
+			{
+				var collection = database.GetCollection<User>("users");
+				if (collection.Find(registerFilter).CountDocuments() == 0)
+				{
+					collection.InsertOne(new User()
+					{
+						Id = new ObjectId(),
+						Username = username,
+						Password = password
+					});
+					return true;
+				}
+				else
+					return false;
+			}
+		}
 	}
 }

@@ -18,6 +18,7 @@ namespace KlotSongs
 		public Form1()
 		{
 			InitializeComponent();
+			DBService database = new DBService();
 			//Paragraph para = new Paragraph()
 			//{
 			//	Lyrics = "vozi me",
@@ -26,7 +27,6 @@ namespace KlotSongs
 			//ObjectId owner = ObjectId.GenerateNewId();
 			//List<Paragraph> pesma = new List<Paragraph>();
 			//pesma.Add(para);
-			//DBService database = new DBService();
 			//Song song = new Song()
 			//{
 			//	Artist = "MikaPera",
@@ -48,6 +48,7 @@ namespace KlotSongs
 			//List<Song> songs = database.GetSongList();
 			//List<Song> songsUser = database.GetSongsMatching("rel", 1);
 			//List<Song> songsUser1 = database.GetSongsMatching("kak", 1);
+			//var nw = database.LogIn("Peca", "Shmeca");
 		}
 	}
 }
