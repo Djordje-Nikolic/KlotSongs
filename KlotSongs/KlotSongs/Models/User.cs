@@ -7,12 +7,10 @@ using System.Threading.Tasks;
 
 namespace KlotSongs.Models
 {
-	public class Song
+	class User
 	{
 		public ObjectId Id { get; set; }
-		public ObjectId OwnerId { get; set; }
-		public string Name { get; set; }
-		public string Artist { get; set; }
-		public List<Paragraph> Lyrics { get; set; }
+		public string Username { get; set; }
+		public string Password { get; set; }
 	}
 }
