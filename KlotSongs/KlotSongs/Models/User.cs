@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace KlotSongs.Models
 {
-	class User
+	public class User
 	{
 		public ObjectId Id { get; set; }
 		public string Username { get; set; }

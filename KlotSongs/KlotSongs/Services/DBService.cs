@@ -15,7 +15,7 @@ namespace KlotSongs.Services
 		String
 	}
 
-	class DBService
+	public class DBService
 	{
 		public int nextBatch { get; set; } = 0;
 		public Searches lastSearch { get; private set; }
@@ -45,8 +45,8 @@ namespace KlotSongs.Services
 		public void UpdateSong(Song song)
 		{
 
-			FilterDefinition<Song> updateFilter = "{ Id: " + song.Id + " }";
-			UpdateDefinition<Song> songUpdate = "{ Name: " + song.Name + ", Artist: " + song.Artist + ", Lyrics: " + song.Lyrics + " }";
+			FilterDefinition<Song> updateFilter = "{ Id: \"" + song.Id + "\" }";
+			UpdateDefinition<Song> songUpdate = "{ Name: \"" + song.Name + "\", Artist: \"" + song.Artist + "\", Lyrics: \"" + song.Lyrics + "\" }";
 			using (DatabaseHandler database = new DatabaseHandler())
 			{
 				var collection = database.GetCollection<Song>("songs");
